@@ -12,8 +12,9 @@ const MONGO_URL = process.env.MONGO_URL || "your_default_mongo_url_here";
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://bagshop-fglr.onrender.com",
     credentials: true,
 }));
 // Serve static files from the 'uploads' directory
@@ -30,9 +31,9 @@ app.use('/api/productvendor', require("./routes/VendorProductRoute"));
 
 // 404 Route
 app.use("*", (req, res) => {
-    res.status(404).json({
-        message: "404: Resource Not Found",
-    });
+
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+    // message: "404: Resource Not Found",
 });
 
 // Database Connection
