@@ -13,7 +13,7 @@ const MONGO_URL = process.env.MONGO_URL || "your_default_mongo_url_here";
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("dist"))
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 app.use(cors({
     origin: "https://bagshop-fglr.onrender.com",
     credentials: true,
