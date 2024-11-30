@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(express.static("dist"))
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://bagshop-fglr.onrender.com",
     credentials: true,
 }));
 // Serve static files from the 'uploads' directory
