@@ -12,10 +12,10 @@ const MONGO_URL = process.env.MONGO_URL || "your_default_mongo_url_here";
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static("dist"))
+app.use(express.static(path.join(__dirname, 'build')));
 // app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-    origin: "https://bagshop-fglr.onrender.com",
+    origin: ["https://bagshop-fglr.onrender.com", "http://localhost:5000"],
     credentials: true,
 }));
 // Serve static files from the 'uploads' directory
